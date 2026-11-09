@@ -6,26 +6,27 @@ on:
     branches:
       - main
       - develop
+
   pull_request:
     branches:
       - main
       - develop
+
   workflow_dispatch:
 
 jobs:
   validate:
     name: Install and type-check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: npm
 
       - name: Install dependencies
         run: npm install
